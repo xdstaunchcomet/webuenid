@@ -1,652 +1,108 @@
-:root { 
-  --rojo: #c62828;
-  --verde: #2e7d32;
-  --amarillo: #ffd700;
-  --blanco: #fff;
-  --gris-claro: #fff2f2;
-  --gris: #474747;
-  --gris-suave: #555;
-}
-
 body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  color: var(--gris);
-  background-color: var(--gris-claro);
-  scroll-behavior: smooth;
-  overflow-x: hidden;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    margin: 0;
+    background-color: #eef3f9; /* Fondo más claro y limpio */
+    font-family: 'Roboto', sans-serif; /* Fuente moderna */
+    color: #333; /* Color de texto para accesibilidad */
 }
 
-header.hero {
-  position: relative;
-  background: url('img/fondo.png') no-repeat center center/cover; /* Imagen de fondo */
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: var(--blanco);
-  overflow: hidden;
-  animation: parallax 25s infinite linear;
-}
-
-.hero-overlay {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Oscurecimiento */
-  z-index: 1; /* Detrás del texto */
-}
-
-.hero-text {
-  position: relative;
-  z-index: 2; /* Por encima de la capa oscurecida */
-  padding-top: 1cm; /* Ajuste para que los botones estén más arriba */
-}
-
-.escudonid {
-  z-index: 1;
-  padding-top: 1cm;
-}
-
-header.hero h1 {
-  font-size: 2.5rem; /* Tamaño reducido */
-  margin: 0;
-  text-transform: uppercase;
-  font-weight: bold;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-  animation: fadeIn 2s ease-in;
-}
-
-header.hero p {
-  margin-top: 10px;
-  font-size: 1.2rem; /* Tamaño reducido */
-  font-style: italic;
-  animation: fadeIn 3s ease-in;
-}
-
-/* Agregar los botones debajo del texto */
-.hero-buttons {
-  display: flex;
-  gap: 20px;
-  margin-top: 20px;
-  position: relative;
-  z-index: 3; /* Para que se vea por encima del overlay */
-}
-
-.hero-buttons a {
-  padding: 12px 25px;  /* Botones más grandes y equilibrados */
-  background-color: var(--rojo);
-  color: var(--blanco);
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 1.1rem; /* Ajuste para mayor visibilidad */
-  font-weight: bold;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.hero-buttons a:hover {
-  background-color: var(--amarillo);
-  transform: scale(1.1);
-}
-/* Barra de navegación */
-.navbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  transition: background-color 0.3s ease-in-out;
-}
-
-/* Estilo normal de los botones */
-.navbar a {
-  color: rgba(255, 255, 255, 0.8);  /* Blanco con opacidad */
-  font-size: 18px;
-  padding: 10px 15px;
-  text-decoration: none;
-  text-transform: uppercase;
-  margin: 0 10px;
-  border-radius: 5px;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Hover para cambiar fondo y sombra */
-.navbar a:hover {
-  color: white;
-  background-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Barra de navegación cuando esté sobre fondo blanco */
-.navbar.white-background a {
-  color: #c62828;  /* Cambia el color a rojo oscuro */
-  background-color: rgba(255, 255, 255, 0.8);  /* Fondo sutil blanco */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra sutil */
-}
-
-
-
-.seccion {
-  padding: 10px; /* Reduce el espacio interno */
-  margin: 10px auto; /* Reduce el margen entre secciones */
-  width: 80%; /* Reduce el ancho de las secciones */
-  font-size: 0.9em; /* Ajusta el tamaño del texto */
-  background-color: #f9f9f9; /* Fondo claro para destacar */
-  border: 1px solid #ddd; /* Borde ligero */
-  border-radius: 5px; /* Esquinas redondeadas */
-}
-
-#vision h2, #mision h2 {
-  font-size: 1.2em; /* Reduce el tamaño del título */
-  text-align: center;
-  color: #333; /* Color oscuro para mejor visibilidad */
-}
-
-#vision p, #mision p {
-  font-size: 0.85em; /* Reduce el tamaño del texto en párrafos */
-  line-height: 1.4; /* Espaciado entre líneas */
-  text-align: justify; /* Texto justificado */
-  color: #555; /* Color del texto más suave */
-}
-
-.seccion {
-  max-width: 900px;
-  margin: 50px auto;
-  background: linear-gradient(135deg, #fff, #f0f0f0);
-  padding: 40px 30px;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  animation: slideIn 1s ease-out;
-}
-
-.seccion h2 {
-  font-size: 2.4rem;
-  color: var(--rojo);
-  margin-bottom: 20px;
-  border-bottom: 4px solid var(--rojo);
-  padding-bottom: 5px;
-  display: inline-block;
-  animation: fadeIn 1s ease-in;
-}
-
-.seccion p {
-  font-size: 1.2rem;
-  color: var(--gris-suave);
-  line-height: 1.8;
-  text-align: justify;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.footer {
-  text-align: center;
-  background-color: var(--rojo);
-  color: var(--blanco);
-  padding: 20px 0;
-  font-size: 0.9rem;
-}
-
-#scrollToTop {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: var(--rojo);
-  color: var(--blanco);
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  opacity: 0.8;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-.wheel-and-hamster {
-    --dur: 1.0s;
+.slider {
+    width: 90%;
+    max-width: 1400px; /* Limita el ancho */
+    height: 350px; /* Altura más grande para imágenes */
+    margin: auto;
     position: relative;
-    width: 12em;
-    height: 12em;
-    font-size: 14px;
-
-  }
-  
-  .wheel,
-  .hamster,
-  .hamster div,
-  .spoke {
-    position: absolute;
-  }
-  
-  .wheel,
-  .spoke {
-    border-radius: 50%;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .wheel {
-    background: radial-gradient(100% 100% at center,hsla(0, 100%, 43%, 0) 47.8%,hsl(0, 100%, 48%) 48%);
-    z-index: 2;
-  }
-  
-  .hamster {
-    animation: hamster var(--dur) ease-in-out infinite;
-    top: 50%;
-    left: calc(50% - 3.5em);
-    width: 7em;
-    height: 3.75em;
-    transform: rotate(4deg) translate(-0.8em,1.85em);
-    transform-origin: 50% 0;
-    z-index: 1;
-  }
-  
-  .hamster__head {
-    animation: hamsterHead var(--dur) ease-in-out infinite;
-    background: hsl(30, 69%, 54%);
-    border-radius: 70% 30% 0 100% / 40% 25% 25% 60%;
-    box-shadow: 0 -0.25em 0 hsl(30,90%,80%) inset,
-          0.75em -1.55em 0 hsl(30,90%,90%) inset;
-    top: 0;
-    left: -2em;
-    width: 2.75em;
-    height: 2.5em;
-    transform-origin: 100% 50%;
-  }
-  
-  .hamster__ear {
-    animation: hamsterEar var(--dur) ease-in-out infinite;
-    background: hsl(0,90%,85%);
-    border-radius: 50%;
-    box-shadow: -0.25em 0 hsl(30,90%,55%) inset;
-    top: -0.25em;
-    right: -0.25em;
-    width: 0.75em;
-    height: 0.75em;
-    transform-origin: 50% 75%;
-  }
-  
-  .hamster__eye {
-    animation: hamsterEye var(--dur) linear infinite;
-    background-color: hsl(0,0%,0%);
-    border-radius: 50%;
-    top: 0.375em;
-    left: 1.25em;
-    width: 0.5em;
-    height: 0.5em;
-  }
-  
-  .hamster__nose {
-    background: hsl(0,90%,75%);
-    border-radius: 35% 65% 85% 15% / 70% 50% 50% 30%;
-    top: 0.75em;
-    left: 0;
-    width: 0.2em;
-    height: 0.25em;
-  }
-  
-  .hamster__body {
-    animation: hamsterBody var(--dur) ease-in-out infinite;
-    background: hsl(30,90%,90%);
-    border-radius: 50% 30% 50% 30% / 15% 60% 40% 40%;
-    box-shadow: 0.1em 0.75em 0 hsl(30,90%,55%) inset,
-          0.15em -0.5em 0 hsl(30,90%,80%) inset;
-    top: 0.25em;
-    left: 2em;
-    width: 4.5em;
-    height: 3em;
-    transform-origin: 17% 50%;
-    transform-style: preserve-3d;
-  }
-  
-  .hamster__limb--fr,
-  .hamster__limb--fl {
-    clip-path: polygon(0 0,100% 0,70% 80%,60% 100%,0% 100%,40% 80%);
-    top: 2em;
-    left: 0.5em;
-    width: 1em;
-    height: 1.5em;
-    transform-origin: 50% 0;
-  }
-  
-  .hamster__limb--fr {
-    animation: hamsterFRLimb var(--dur) linear infinite;
-    background: linear-gradient(hsl(30,90%,80%) 80%,hsl(0,90%,75%) 80%);
-    transform: rotate(15deg) translateZ(-1px);
-  }
-  
-  .hamster__limb--fl {
-    animation: hamsterFLLimb var(--dur) linear infinite;
-    background: linear-gradient(hsl(30,90%,90%) 80%,hsl(0,90%,85%) 80%);
-    transform: rotate(15deg);
-  }
-  
-  .hamster__limb--br,
-  .hamster__limb--bl {
-    border-radius: 0.75em 0.75em 0 0;
-    clip-path: polygon(0 0,100% 0,100% 30%,70% 90%,70% 100%,30% 100%,40% 90%,0% 30%);
-    top: 1em;
-    left: 2.8em;
-    width: 1.5em;
-    height: 2.5em;
-    transform-origin: 50% 30%;
-  }
-  
-  .hamster__limb--br {
-    animation: hamsterBRLimb var(--dur) linear infinite;
-    background: linear-gradient(hsl(30,90%,80%) 90%,hsl(0,90%,75%) 90%);
-    transform: rotate(-25deg) translateZ(-1px);
-  }
-  
-  .hamster__limb--bl {
-    animation: hamsterBLLimb var(--dur) linear infinite;
-    background: linear-gradient(hsl(30,90%,90%) 90%,hsl(0,90%,85%) 90%);
-    transform: rotate(-25deg);
-  }
-  
-  .hamster__tail {
-    animation: hamsterTail var(--dur) linear infinite;
-    background: hsl(0,90%,85%);
-    border-radius: 0.25em 50% 50% 0.25em;
-    box-shadow: 0 -0.2em 0 hsl(0,90%,75%) inset;
-    top: 1.5em;
-    right: -0.5em;
-    width: 1em;
-    height: 0.5em;
-    transform: rotate(30deg) translateZ(-1px);
-    transform-origin: 0.25em 0.25em;
-  }
-  
-  .spoke {
-    animation: spoke var(--dur) linear infinite;
-    background: radial-gradient(100% 100% at center,hsl(0,0%,60%) 4.8%,hsla(0,0%,60%,0) 5%),
-          linear-gradient(hsla(0, 2%, 8%, 0) 46.9%,hsl(0,0%,65%) 47% 52.9%,hsla(0,0%,65%,0) 53%) 50% 50% / 99% 99% no-repeat;
-  }
-  
-  /* Animations */
-  @keyframes hamster {
-    from, to {
-      transform: rotate(4deg) translate(-0.8em,1.85em);
-    }
-  
-    50% {
-      transform: rotate(0) translate(-0.8em,1.85em);
-    }
-  }
-  
-  @keyframes hamsterHead {
-    from, 25%, 50%, 75%, to {
-      transform: rotate(0);
-    }
-  
-    12.5%, 37.5%, 62.5%, 87.5% {
-      transform: rotate(8deg);
-    }
-  }
-  
-  @keyframes hamsterEye {
-    from, 90%, to {
-      transform: scaleY(1);
-    }
-  
-    95% {
-      transform: scaleY(0);
-    }
-  }
-  
-  @keyframes hamsterEar {
-    from, 25%, 50%, 75%, to {
-      transform: rotate(0);
-    }
-  
-    12.5%, 37.5%, 62.5%, 87.5% {
-      transform: rotate(12deg);
-    }
-  }
-  
-  @keyframes hamsterBody {
-    from, 25%, 50%, 75%, to {
-      transform: rotate(0);
-    }
-  
-    12.5%, 37.5%, 62.5%, 87.5% {
-      transform: rotate(-2deg);
-    }
-  }
-  
-  @keyframes hamsterFRLimb {
-    from, 25%, 50%, 75%, to {
-      transform: rotate(50deg) translateZ(-1px);
-    }
-  
-    12.5%, 37.5%, 62.5%, 87.5% {
-      transform: rotate(-30deg) translateZ(-1px);
-    }
-  }
-  
-  @keyframes hamsterFLLimb {
-    from, 25%, 50%, 75%, to {
-      transform: rotate(-30deg);
-    }
-  
-    12.5%, 37.5%, 62.5%, 87.5% {
-      transform: rotate(50deg);
-    }
-  }
-  
-  @keyframes hamsterBRLimb {
-    from, 25%, 50%, 75%, to {
-      transform: rotate(-60deg) translateZ(-1px);
-    }
-  
-    12.5%, 37.5%, 62.5%, 87.5% {
-      transform: rotate(20deg) translateZ(-1px);
-    }
-  }
-  
-  @keyframes hamsterBLLimb {
-    from, 25%, 50%, 75%, to {
-      transform: rotate(20deg);
-    }
-  
-    12.5%, 37.5%, 62.5%, 87.5% {
-      transform: rotate(-60deg);
-    }
-  }
-  
-  @keyframes hamsterTail {
-    from, 25%, 50%, 75%, to {
-      transform: rotate(30deg) translateZ(-1px);
-    }
-  
-    12.5%, 37.5%, 62.5%, 87.5% {
-      transform: rotate(10deg) translateZ(-1px);
-    }
-  }
-  
-  @keyframes spoke {
-    from {
-      transform: rotate(0);
-    }
-  
-    to {
-      transform: rotate(-1turn);
-    }
-  }
-  /* From Uiverse.io by david-mohseni */ 
-.wrapper {
-    display: inline-flex;
-    list-style: none;
-    height: 120px;
-    width: 100%;
-    padding-top: 40px;
-    padding-left: 1.5cm;
-    font-family: "Poppins", sans-serif;
-    justify-content: left;
-    
-  }
-  
-  .wrapper .icon {
-    position: relative;
-    background: #fff;
-    border-radius: 50%;
-    margin: 10px;
-    width: 50px;
-    height: 50px;
-    font-size: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-  
-  .wrapper .tooltip {
-    position: absolute;
-    top: 0;
-    font-size: 14px;
-    background: #fff;
-    color: #fff;
-    padding: 5px 8px;
-    border-radius: 5px;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-  
-  .wrapper .tooltip::before {
-    position: absolute;
+    overflow: hidden;
+    border-radius: 25px; /* Bordes redondeados más pronunciados */
+    background-color: #ffffff; /* Fondo blanco */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15); /* Sombra suave */
+}
+
+.slide-track {
+    display: flex;
+    animation: autoScroll 2.5s linear infinite; /* Velocidad más rápida */
+    will-change: transform; /* Optimización para rendimiento */
+}
+
+.slider:hover .slide-track {
+    animation-play-state: paused; /* Pausa la animación al hacer hover */
+}
+
+.slide {
+    flex: 0 0 400px; /* Tamaño de cada imagen */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-right: 30px; /* Espaciado mayor */
+    overflow: hidden;
+    border-radius: 25px;
+    background-color: #f9fafc; /* Fondo claro para mejor contraste */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.slide:hover {
+    transform: scale(1.1); /* Sobresale al pasar el cursor */
+    z-index: 10; /* Trae la imagen al frente */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); /* Sombra más marcada */
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+img:hover {
+    transform: scale(1.15); /* Zoom más pronunciado */
+    filter: brightness(0.85); /* Ligera atenuación */
+}
+
+/* Animación de desplazamiento continuo */
+@keyframes autoScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Mueve el contenido hasta la mitad */
+    }
+}
+
+/* Duplicar imágenes para el bucle infinito */
+.slide-track::after {
     content: "";
-    height: 8px;
-    width: 8px;
-    background: #fff;
-    bottom: -3px;
-    left: 50%;
-    transform: translate(-50%) rotate(45deg);
-    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-  
-  .wrapper .icon:hover .tooltip {
-    top: -45px;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
-  
-  .wrapper .icon:hover span,
-  .wrapper .icon:hover .tooltip {
-    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
-  }
-  
-  .wrapper .facebook:hover,
-  .wrapper .facebook:hover .tooltip,
-  .wrapper .facebook:hover .tooltip::before {
-    background: #1877f2;
-    color: #fff;
-  }
-  
-  .wrapper .twitter:hover,
-  .wrapper .twitter:hover .tooltip,
-  .wrapper .twitter:hover .tooltip::before {
-    background: #1da1f2;
-    color: #fff;
-  }
-  
-  .wrapper .instagram:hover,
-  .wrapper .instagram:hover .tooltip,
-  .wrapper .instagram:hover .tooltip::before {
-    background: #e4405f;
-    color: #fff;
-  }
-  /* Animación de paralaje */
-@keyframes parallax {
-  0% { background-position: 0 0; }
-  100% { background-position: 100% 0; }
+    display: flex;
+}
+.slide:not(:hover) {
+    transform: scale(0.9); /* Reduce las imágenes inactivas */
+    z-index: 1; /* Las envía al fondo */
+    
+    filter: brightness(0.8); /* Oscurece las imágenes inactivas */
+    transition: opacity 0.5s ease, filter 0.5s ease;
 }
 
-.comentarios-form {
-  max-width: 400px; /* Define un ancho máximo más pequeño */
-  margin: 20px auto; /* Centra la caja */
-  padding: 15px;
-  background-color: #f8f9fa; /* Fondo claro para distinguir */
-  border: 1px solid #ddd; /* Borde sutil */
-  border-radius: 5px; /* Bordes redondeados */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.5s ease;
 }
 
-.comentarios-form label {
-  display: block;
-  font-size: 14px; /* Texto más pequeño */
-  margin-bottom: 5px;
-  color: #333;
+img:hover {
+    transform: scale(1.1); /* Zoom adicional */
+    filter: brightness(1); /* Restaura el brillo al pasar el cursor */
 }
+.slide:hover {
+    transform: scale(1.2); /* Agranda la imagen activa */
+    z-index: 10; /* La trae al frente */
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
 
-.comentarios-form input[type="text"],
-.comentarios-form input[type="email"],
-.comentarios-form textarea {
-  width: 100%; /* Asegura que ocupen todo el ancho disponible */
-  font-size: 14px; /* Texto más pequeño */
-  padding: 1px; /* Reduce el espacio interno */
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: none; /* Deshabilita redimensionar la caja de texto */
 }
-
-.comentarios-form button {
-  background-color: #656b72;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 8px 12px; /* Reduce el tamaño del botón */
-  cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s ease;
-}
-
-.comentarios-form button:hover {
-  background-color: var(--verde);
-}
-#comentarios h2 {
-  font-size: 18px; /* Tamaño de fuente más pequeño */
-  text-align: left; /* Alineación a la izquierda */
-  color: #333; /* Color del texto */
-  margin-bottom: 10px; /* Espaciado inferior */
-  margin-left: 20px; /* Espaciado a la izquierda */
-}
-
-
-
-
