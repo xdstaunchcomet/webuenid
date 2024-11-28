@@ -67,20 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Función para detectar el scroll y cambiar el color de los botones
-    window.addEventListener('scroll', function () {
-        const navbar = document.querySelector('.navbar');
-        const imageSection = document.querySelector('.hero'); // Sección con la imagen de fondo
-        const imageRect = imageSection.getBoundingClientRect(); // Obtiene la posición de la imagen
-        const imageBottom = imageRect.bottom; // Parte inferior de la imagen
-
-        // Detecta si la parte inferior de la imagen ya no está en pantalla
-        if (window.scrollY + window.innerHeight > imageBottom) {
-            // Agrega clase cuando los botones ya no están sobre la imagen
-            navbar.classList.add('white-background');
-        } else {
-            // Elimina la clase cuando los botones están sobre la imagen
-            navbar.classList.remove('white-background');
-        }
+        
     });
-});
+
